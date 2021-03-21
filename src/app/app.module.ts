@@ -32,6 +32,9 @@ const NGX_TRANSLATE_MODULES = [TranslateModule.forRoot({
   }
 })]
 
+
+import { LayoutModule} from './layout/layout.module'
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -46,6 +49,7 @@ registerLocaleData(zh);
     RouterModule,
     RoutesModule,
     ...NGX_TRANSLATE_MODULES,
+    LayoutModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
