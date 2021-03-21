@@ -5,6 +5,8 @@ import { LoginComponent } from './passport/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { UserManageComponent } from './user-manage/user-manage.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 
 
@@ -14,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, UserManageComponent, HomeAdminComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

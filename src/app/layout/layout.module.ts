@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PassportComponent } from './passport/passport.component';
 
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 
 @NgModule({
-  declarations: [PassportComponent],
+  declarations: [PassportComponent, HomeComponent],
   imports: [
     CommonModule,
     RouterModule
