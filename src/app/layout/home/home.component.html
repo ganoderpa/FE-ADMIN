@@ -1,4 +1,32 @@
 <app-home-header></app-home-header>
-<p>home works!</p>
+
+<nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light">
+        <ul nz-menu nzMode="inline" style="height: 100%;">
+        
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>
+            <li nz-menu-item [nzMatchRouter]='true'>
+                <a routerLink='/user'></i>用户管理</a>
+            </li>    
+        </ul>
+    </nz-sider>
+    <nz-content>
+        <router-outlet></router-outlet>
+    </nz-content>
+</nz-layout>
+
 <app-home-footer></app-home-footer>
-<router-outlet></router-outlet>
