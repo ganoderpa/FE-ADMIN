@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+
+// import { NzFormModule } from 'ng-zorro-antd/form';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -10,19 +16,33 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
+    private fb: FormBuilder
   ) {
-    this.translate.use('zh_CN');  
+    this.translate.use('zh_CN');
     // this.translate.use('en-US');  
-   }
+  }
 
-    name=''; 
+  name = '';
+
+  validateForm!: FormGroup;
 
   ngOnInit(): void {
-
     this.translate.get('name').subscribe((res: string) => {
-      console.log(res); // welcome to this app
       this.name = res;
-});
+    });
+    this.validateForm = this.fb.group({
+      userName: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+      remember: [true]
+    });
+  }
+
+
+  submitForm(): void {
+    for (const i in this.validateForm.controls) {
+      this.validateForm.controls[i].markAsDirty();
+      this.validateForm.controls[i].updateValueAndValidity();
+    }
   }
 
 }
