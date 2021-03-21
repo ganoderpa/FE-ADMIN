@@ -6,7 +6,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { UserManageComponent } from './user-manage/user-manage.component';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 
 
@@ -16,7 +15,7 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, UserManageComponent, HomeAdminComponent],
+  declarations: [LoginComponent, UserManageComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

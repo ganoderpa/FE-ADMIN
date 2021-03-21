@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PassportComponent } from '../layout/passport/passport.component';
 import { LoginComponent } from './passport/login/login.component';
 import { HomeComponent } from '../layout/home/home.component';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { UserManageComponent } from './user-manage/user-manage.component';
 
 
@@ -20,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeAdminComponent,
+    component: HomeComponent,
     children: [
       {
         path: 'user',
