@@ -44,7 +44,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import {HttpService} from './HttpService'
+import {HttpService} from './service/http.service';
+import {MessageService} from './service/message.service'
 
 
 
@@ -107,7 +108,9 @@ const EXTERNALMODULES = [
 ];
 
 
-const SERVICES = [HttpService];
+const SERVICES = [
+  HttpService,
+  MessageService];
 
 const PIPES = [];
 
