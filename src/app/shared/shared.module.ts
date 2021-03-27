@@ -42,6 +42,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 
 
 
@@ -97,7 +99,8 @@ const EXTERNALMODULES = [
   NzSelectModule,
   NzCheckboxModule,
   NzNotificationModule,
-  NzDatePickerModule
+  NzDatePickerModule,
+  TranslateModule
 ];
 
 

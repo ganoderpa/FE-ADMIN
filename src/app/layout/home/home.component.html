@@ -1,32 +1,38 @@
-<app-home-header></app-home-header>
+<nz-layout class="home-container">
+    <nz-header nzTheme="light">
+        <app-home-header></app-home-header>
+    </nz-header>
+    <nz-layout>
+        <nz-sider nzWidth="200px" nzTheme="light">
+            <ul nz-menu nzMode="inline" style="height: 100%;">
+                <!-- nzMatchRouter:是否根据 routerLink 自动设定 nzSelected-->
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/user'> <i nz-icon nzType="user"></i>{{'home-usermanage'|translate}}</a>
+                </li>
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/auth'> <i nz-icon nzType="user"></i>{{'home-authmanage'|translate}}</a>
+                </li>
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/auth'> <i nz-icon nzType="user"></i>用户管理</a>
+                </li>
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/auth'> <i nz-icon nzType="user"></i>用户管理</a>
+                </li>
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/auth'> <i nz-icon nzType="user"></i>用户管理</a>
+                </li>
+                <li nz-menu-item [nzMatchRouter]='true'>
+                    <a routerLink='/home/auth'> <i nz-icon nzType="user"></i>用户管理</a>
+                </li>
+            </ul>
+        </nz-sider>
+        <nz-content>
+            <router-outlet></router-outlet>
+            <!-- <app-home-footer></app-home-footer> -->
+        </nz-content>
+    </nz-layout>
+    
+    <!-- <nz-footer>
+    </nz-footer> -->
 
-<nz-layout>
-    <nz-sider nzWidth="200px" nzTheme="light">
-        <ul nz-menu nzMode="inline" style="height: 100%;">
-        
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>
-            <li nz-menu-item >
-                <a routerLink='/user'>用户管理</a>
-            </li>    
-        </ul>
-    </nz-sider>
-    <nz-content>
-        <router-outlet></router-outlet>
-    </nz-content>
 </nz-layout>
-
-<app-home-footer></app-home-footer>

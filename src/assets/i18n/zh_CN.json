@@ -1,3 +1,5 @@
 {
-    "login":"登录"
+    "login":"登录",
+    "home-usermanage":"用户管理",
+    "home-authmanage":"权限管理"
 }

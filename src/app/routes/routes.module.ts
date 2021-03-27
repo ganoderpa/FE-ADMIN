@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './passport/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 
-import { TranslateModule } from '@ngx-translate/core';
 import { UserManageComponent } from './user-manage/user-manage.component';
+import { AuthManageComponent } from './auth-manage/auth-manage.component';
 
 
 
@@ -15,17 +15,11 @@ import { UserManageComponent } from './user-manage/user-manage.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, UserManageComponent],
+  declarations: [LoginComponent, UserManageComponent, AuthManageComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
-    //懒加载原因?? 不在子module中引入会报 找不到translate 管道
-    //https://blog.csdn.net/weixin_34304013/article/details/92973209
-    // TranslateModule,
-    // NzFormModule,
-    SharedModule,
-    TranslateModule
-    
+    SharedModule,  
   ]
 })
 export class RoutesModule { }

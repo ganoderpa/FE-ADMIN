@@ -4,6 +4,7 @@ import { PassportComponent } from '../layout/passport/passport.component';
 import { LoginComponent } from './passport/login/login.component';
 import { HomeComponent } from '../layout/home/home.component';
 import { UserManageComponent } from './user-manage/user-manage.component';
+import { AuthManageComponent } from './auth-manage/auth-manage.component';
 
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'user',
         component: UserManageComponent,
+      },
+      {
+        path: 'auth',
+        component: AuthManageComponent,
       },
     ]
   },
