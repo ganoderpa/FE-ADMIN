@@ -6,6 +6,8 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 
 import {Router} from '@angular/router';
 
+import {LoginService} from './login.service'
+
 
 
 
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
     private translate: TranslateService,
     private fb: FormBuilder,
     private router: Router,
+    private loginService:LoginService
   ) {
     this.translate.use('zh_CN');
     // this.translate.use('en-US');  
@@ -34,8 +37,9 @@ export class LoginComponent implements OnInit {
       this.name = res;
     });
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      //添加默认值
+      userName: ['usr', [Validators.required]],
+      password: ['pwd', [Validators.required]],
       remember: [true]
     });
   }
@@ -48,13 +52,29 @@ export class LoginComponent implements OnInit {
     }
     if (this.validateForm.status !== 'VALID') {
       return;
+    } else {
       //校验通过
-    } else if (this.validateForm.value.userName === 'usr' && this.validateForm.value.password === 'pwd') { 
-      //跳转用户管理页面
-      this.router.navigateByUrl('/home/user');
 
-    }else{
-    
+      if (this.validateForm.value.userName === 'usr' && this.validateForm.value.password === 'pwd') {
+        //跳转用户管理页面
+        this.router.navigateByUrl('/home/user');
+        return;
+      }
+
+      this.loginService.login({
+        usrCd: this.validateForm.value.userName,
+        pwd: this.validateForm.value.password,
+      }).then(
+        data=>{
+          console.log(data)
+        }
+      )
+      .catch(
+        e=>{
+          console.log(e)
+        }
+      )
+
 
     }
 
