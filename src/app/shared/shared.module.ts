@@ -41,11 +41,13 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { TranslateModule } from '@ngx-translate/core';
 
 import {HttpService} from './service/http.service';
 import {MessageService} from './service/message.service'
+import {AdminViewContainerRefDirective} from './directives/adminViewContainerRef.directvie'
 
 
 
@@ -104,6 +106,7 @@ const EXTERNALMODULES = [
   NzCheckboxModule,
   NzNotificationModule,
   NzDatePickerModule,
+  NzDropDownModule,
   TranslateModule
 ];
 
@@ -114,7 +117,9 @@ const SERVICES = [
 
 const PIPES = [];
 
-const DIRECTIVES = [];
+const DIRECTIVES = [
+  AdminViewContainerRefDirective
+];
 
 
 
