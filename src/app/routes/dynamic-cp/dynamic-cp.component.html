@@ -1,0 +1,11 @@
+<a nz-dropdown [nzDropdownMenu]="menu">
+    select component
+    <i nz-icon nzType="down"></i>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu" >
+    <ul nz-menu nzSelectable *ngFor='let item of componentArray'>
+      <li nz-menu-item (click)='creatComponent(item)' >{{item.name}}</li>
+    </ul>
+  </nz-dropdown-menu>
+
+<ng-template adminViewContainerRefDirective></ng-template>

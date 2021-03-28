@@ -45,8 +45,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-import {HttpService} from './service/http.service';
-import {MessageService} from './service/message.service'
+import {HttpService} from './services/http.service';
+import {MessageService} from './services/message.service'
 import {AdminViewContainerRefDirective} from './directives/adminViewContainerRef.directvie'
 
 

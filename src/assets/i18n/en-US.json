@@ -1,5 +1,6 @@
 {
     "login":"login",
     "home-usermanage":"User Management",
-    "home-authmanage":"Authority Management"
+    "home-authmanage":"Authority Management",
+    "home-dynamic-cp":"Dynamic Component"
 }

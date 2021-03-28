@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { UserManageComponent } from './user-manage/user-manage.component';
 import { AuthManageComponent } from './auth-manage/auth-manage.component';
+import { DynamicCpComponent } from './dynamic-cp/dynamic-cp.component';
 
 
 
@@ -19,7 +20,7 @@ import { AuthManageComponent } from './auth-manage/auth-manage.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, UserManageComponent, AuthManageComponent],
+  declarations: [LoginComponent, UserManageComponent, AuthManageComponent, DynamicCpComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

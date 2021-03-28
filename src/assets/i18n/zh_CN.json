@@ -1,5 +1,6 @@
 {
     "login":"登录",
     "home-usermanage":"用户管理",
-    "home-authmanage":"权限管理"
+    "home-authmanage":"权限管理",
+    "home-dynamic-cp":"动态组件"
 }
