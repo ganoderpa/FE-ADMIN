@@ -1,0 +1,20 @@
+<ag-grid-angular
+  #agGrid
+  style="height: 100%;width: 100%;"
+  class="ag-theme-balham"
+  [modules]="modules"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [tooltipShowDelay]="0"
+  [frameworkComponents]="frameworkComponents"
+  [gridOptions]="gridOptions"
+  (sortChanged)="onSortChangedHandler($event)"
+  (cellClicked)="onCellClickedHandler($event)"
+  (rowClicked)="onRowClickedHandler($event)"
+  (selectionChanged)="onSelectionChangedHandler($event)"
+  (rowDoubleClicked)="onRowDoubleClickedHandler($event)"
+  (columnVisible)="columnVisibleHandler($event)"
+  (dragStopped)="dragStoppedHandler($event)"
+  (gridReady)="onGridReady($event)">
+</ag-grid-angular>

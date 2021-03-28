@@ -45,9 +45,12 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { TranslateModule } from '@ngx-translate/core';
 
+import{AgGridModule } from 'ag-grid-angular'
+
 import {HttpService} from './services/http.service';
 import {MessageService} from './services/message.service'
-import {AdminViewContainerRefDirective} from './directives/adminViewContainerRef.directvie'
+import {AdminViewContainerRefDirective} from './directives/adminViewContainerRef.directvie';
+import { AgGridComponent } from './components/ag-grid/ag-grid.component';
 
 
 
@@ -79,6 +82,7 @@ const ANGULARMODULE = [
 ];
 
 const COMPONENTS = [
+  AgGridComponent,
 
 ];
 
@@ -107,7 +111,8 @@ const EXTERNALMODULES = [
   NzNotificationModule,
   NzDatePickerModule,
   NzDropDownModule,
-  TranslateModule
+  TranslateModule,
+  AgGridModule.withComponents([]),
 ];
 
 
@@ -118,8 +123,11 @@ const SERVICES = [
 const PIPES = [];
 
 const DIRECTIVES = [
-  AdminViewContainerRefDirective
+  AdminViewContainerRefDirective,
+
 ];
+
+const OTHERS=[];
 
 
 
@@ -142,6 +150,7 @@ const DIRECTIVES = [
     // your components
     ...COMPONENTS,
     ...DIRECTIVES,
+    ...OTHERS,
     // third libs
     ...EXTERNALMODULES,
   ],
