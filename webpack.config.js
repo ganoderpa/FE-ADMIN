@@ -69,7 +69,38 @@ module.exports={
     optimization: {
         //设置runtimeChunk是将包含chunks 映射关系的 list单独从入口js里提取出来
         runtimeChunk: 'single',
-          
+        splitChunks: {
+            //chunks可取值如下：
+            //async异步模块间复用
+            //initial非异步模块间复用，异步模块间也复用
+            //all  非异步模块和异步模块间复用
+            chunks: 'all',
+            //按需加载时的最大并行请求数。
+            // maxAsyncRequests: 2,
+            //入口点的最大并行请求数
+            // maxInitialRequests: 2,
+            //splitChunks就是根据cacheGroups去拆分模块的
+            //缓存组可以继承和/或覆盖来自 splitChunks.* 的任何选项。但是 test、priority 和 reuseExistingChunk 只能在缓存组级别上进行配置
+            cacheGroups: {
+              default: {
+                name:'common',
+                // 生成 chunk 的最小体积
+                minSize: 100000, 
+                // 最小几次引用就拆分
+                minChunks: 2,
+                //优先级
+                priority: -20 // 决定分块的优先级顺序
+              },
+              vendor: {
+                name:'vendor',
+                //筛选从node_modules文件夹下引入的模块
+                test: /node_modules/,
+                maxSize: 2000000,
+                priority: -10
+              }
+            }
+        }
+        
       },
 
 }
