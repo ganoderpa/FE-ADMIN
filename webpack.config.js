@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); 
+const CompressionPlugin = require("compression-webpack-plugin");
 
 
 
@@ -64,6 +65,17 @@ module.exports={
         }),
         //可视化的分析工具,浏览器会自动打开分析的页面，展示各个文件的大小
         // new BundleAnalyzerPlugin()
+        new CompressionPlugin({
+            test: /\.js$/,
+            // include: /\/includes/,
+            // exclude: /\/excludes/,
+            algorithm: "gzip",
+            compressionOptions: { level: 1 },
+            //大于这个大小的文件才会被压缩
+            threshold: 8192,
+            //只有压缩后的压缩率优于这个值才会被压缩
+            minRatio: 0.8,
+        })
 
     ],
     optimization: {
