@@ -65,8 +65,11 @@ module.exports={
         //可视化的分析工具,浏览器会自动打开分析的页面，展示各个文件的大小
         // new BundleAnalyzerPlugin()
 
-        
+    ],
+    optimization: {
+        //设置runtimeChunk是将包含chunks 映射关系的 list单独从入口js里提取出来
+        runtimeChunk: 'single',
+          
+      },
 
-
-    ]
 }
