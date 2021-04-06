@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); 
+
 
 
 module.exports={
@@ -60,6 +62,8 @@ module.exports={
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        //可视化的分析工具,浏览器会自动打开分析的页面，展示各个文件的大小
+        // new BundleAnalyzerPlugin()
 
         
 
