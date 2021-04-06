@@ -1,4 +1,9 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
 
 module.exports={
     mode:'development',
@@ -25,6 +30,12 @@ module.exports={
                 use:'html-loader'
             },
             {
+                test:/\.less$/,
+                use:[ 
+                    // MiniCssExtractPlugin.loader,
+                    'css-loader','less-loader']
+            },
+            {
                 test: /\.(svg|gif|png|jpg)(\?v=\d+\.\d+\.\d+)?$/,
                 use: "url-loader"
             },
@@ -38,4 +49,20 @@ module.exports={
         extensions:['.ts','.js']
     },
     devtool:'source-map',
+    plugins:[
+        //默认清除dist文件夹
+        new CleanWebpackPlugin(),
+        //将CSS提取到单独的文件中
+        // new MiniCssExtractPlugin({
+        //     filename: '[name].[contenthash].css',
+        //     // chunkFilename:  '[id].[contenthash].css',
+        // }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
+
+        
+
+
+    ]
 }
