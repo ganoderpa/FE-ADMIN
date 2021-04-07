@@ -1,10 +1,10 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); 
-const CompressionPlugin = require("compression-webpack-plugin");
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); 
+// const CompressionPlugin = require("compression-webpack-plugin");
 
 
 
@@ -21,7 +21,9 @@ module.exports={
         rules:[
             {
                 test:/\.ts$/,
-                use:['ts-loader'],
+                use:['ts-loader',
+                'angular2-template-loader'
+            ],
                 exclude:[/\.(spec|e2e|d)\.ts$/]
             },
             {
@@ -35,7 +37,7 @@ module.exports={
             {
                 test:/\.less$/,
                 use:[ 
-                    // MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     'css-loader','less-loader']
             },
             {
@@ -56,26 +58,27 @@ module.exports={
         //默认清除dist文件夹
         new CleanWebpackPlugin(),
         //将CSS提取到单独的文件中
-        // new MiniCssExtractPlugin({
-        //     filename: '[name].[contenthash].css',
-        //     // chunkFilename:  '[id].[contenthash].css',
-        // }),
+        //angular项目如果使用Component注解引入css文件的话，需使用angular2-template-loader才可提取css，如果直接import css文件的话，可以直接提取生效
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+            // chunkFilename:  '[id].[contenthash].css',
+        }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
         //可视化的分析工具,浏览器会自动打开分析的页面，展示各个文件的大小
         // new BundleAnalyzerPlugin()
-        new CompressionPlugin({
-            test: /\.js$/,
-            // include: /\/includes/,
-            // exclude: /\/excludes/,
-            algorithm: "gzip",
-            compressionOptions: { level: 1 },
-            //大于这个大小的文件才会被压缩
-            threshold: 8192,
-            //只有压缩后的压缩率优于这个值才会被压缩
-            minRatio: 0.8,
-        })
+        // new CompressionPlugin({
+        //     test: /\.js$/,
+        //     // include: /\/includes/,
+        //     // exclude: /\/excludes/,
+        //     algorithm: "gzip",
+        //     compressionOptions: { level: 1 },
+        //     //大于这个大小的文件才会被压缩
+        //     threshold: 8192,
+        //     //只有压缩后的压缩率优于这个值才会被压缩
+        //     minRatio: 0.8,
+        // })
 
     ],
     optimization: {
@@ -107,7 +110,7 @@ module.exports={
                 name:'vendor',
                 //筛选从node_modules文件夹下引入的模块
                 test: /node_modules/,
-                maxSize: 2000000,
+                // maxSize: 2000000,
                 priority: -10
               }
             }
